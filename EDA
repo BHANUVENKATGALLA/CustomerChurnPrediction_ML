@@ -1,0 +1,15 @@
+#EDA
+# Pairplot for general overview
+sns.pairplot(data, hue='total_day_minutes')  
+# Correlation heatmap
+correlation_matrix = data.corr()
+plt.figure(figsize=(12, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+
+# Distribution of Churn
+plt.figure(figsize=(6, 4))
+sns.countplot(data['total_day_minutes'])  # Assuming 'international_plan' is the churn indicator
+plt.title("Churn Distribution")
+plt.show()
