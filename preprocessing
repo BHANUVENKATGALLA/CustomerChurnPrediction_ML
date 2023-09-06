@@ -1,0 +1,8 @@
+#preprocessing
+import pandas as pd
+columns_to_delete = ['state','area_code','international_plan','voice_mail_plan',]
+
+# Use the drop method to delete the specified columns
+data.drop(columns=columns_to_delete, inplace=True)
+
+print(data.info())
