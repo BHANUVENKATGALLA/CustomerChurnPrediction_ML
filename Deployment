@@ -1,0 +1,34 @@
+#deployment
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Input data
+input_data = (15, 28, 57, 123, 6, 58, 26, 17, 19, 38, 17, 17, 12, 12, 15)
+
+# Changing the input_data to a numpy array
+input_data_as_numpy_array = np.asarray(input_data)
+
+# Reshape the array as we are predicting for one instance
+input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+
+# Assuming you have a DataFrame named 'data' and want to predict 'number_customer_service_calls'
+# Replace 'X' and 'y' with your actual features and target variable
+X = data.drop("number_customer_service_calls", axis=1)
+y = data["number_customer_service_calls"]
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train a Logistic Regression model# Create and train a Logistic Regression model with increased max_iter
+logistic_regression = LogisticRegression(max_iter=1000)
+logistic_regression.fit(X_train, y_train)
+
+
+# Now, you can make predictions with the trained model
+prediction = logistic_regression.predict(input_data_reshaped)
+
+if prediction[0] == 0:
+    print("Churn: No")
+else:
+    print("Churn: Yes")
