@@ -22,7 +22,6 @@ models = {
     "Random Forest": RandomForestClassifier(),
     "Support Vector Machine": SVC()
 }
-
 results = {}
 
 for name, model in models.items():
